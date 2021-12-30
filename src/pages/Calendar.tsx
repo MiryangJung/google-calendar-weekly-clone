@@ -13,6 +13,7 @@ export default function Calendar() {
   const { year, month, days } = useSelector(currentCalendar)
   const [isSideCalendar, setIsSideCalendar] = useState<boolean>(true)
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false)
+  const [isDeleteOpen, setIsDeleteOpen] = useState<boolean>(false)
   const [modalDate, setModalDate] = useState<string>('')
   const [timeIndex, setTimeIndex] = useState<number>(0)
 
@@ -40,6 +41,8 @@ export default function Calendar() {
             setModalDate={setModalDate}
             setTimeIndex={setTimeIndex}
             setIsOpenModal={setIsOpenModal}
+            isDeleteOpen={isDeleteOpen}
+            setIsDeleteOpen={setIsDeleteOpen}
           />
         </div>
         <AddScheduleModal

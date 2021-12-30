@@ -27,6 +27,7 @@ export default function AddScheduleModal({
   const [endHour, setEndHour] = useState<number>(0)
   const [endMinute, setEndMinute] = useState<number>(0)
 
+  const [startSelectTimeIndex, setStartSelectTimeIndex] = useState<number>(0)
   const [endSelectTimeIndex, setEndSelectTimeIndex] = useState<number>(-1)
 
   const [displayStartTime, setDisplayStartTime] = useState<string>('')
@@ -40,6 +41,7 @@ export default function AddScheduleModal({
       setEndSelectTimeIndex(index)
       endTimeChange(hour, minute, text)
     }
+    setStartSelectTimeIndex(index)
     setIsSelectStartTime(false)
     setDisplayStartTime(text)
     setStartHour(hour)
@@ -114,7 +116,7 @@ export default function AddScheduleModal({
             }}
           />
           {isSelectStartTime && (
-            <div className="absolute top-[30px] left-[120px] w-[180px] h-[180px] rounded-md bg-white shadow flex flex-col overflow-y-auto">
+            <div className="absolute top-[30px] left-[120px] w-[180px] h-[180px] rounded-md bg-white shadow flex flex-col overflow-y-auto z-20">
               {selectTimes.map((time, index) => (
                 <div
                   className="p-2 text-sm cursor-pointer hover:bg-gray-100"
@@ -137,8 +139,8 @@ export default function AddScheduleModal({
           </span>
           -
           {isSelectEndTime && (
-            <div className="absolute top-[30px] left-[160px] w-[180px] h-[180px] rounded-md bg-white shadow flex flex-col overflow-y-auto">
-              {selectTimes.slice(endSelectTimeIndex).map(time => (
+            <div className="absolute top-[30px] left-[160px] w-[180px] h-[180px] rounded-md bg-white shadow flex flex-col overflow-y-auto z-20">
+              {selectTimes.slice(startSelectTimeIndex).map(time => (
                 <div
                   className="p-2 text-sm cursor-pointer hover:bg-gray-100"
                   key={time.text}
@@ -159,7 +161,7 @@ export default function AddScheduleModal({
             {displayEndTime}
           </span>
         </div>
-        <div className="flex mt-5">
+        <div className="flex mt-5 z-10">
           {colors.map(clr => (
             <div
               key={clr}
