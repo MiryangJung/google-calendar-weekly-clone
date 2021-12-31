@@ -8,13 +8,14 @@ import getThisWeek from '../util/getThisWeek'
 import { useState } from 'react'
 import AddScheduleButton from '../components/AddScheduleButton'
 import AddScheduleModal from '../components/AddScheduleModal'
+import formatDay from '../util/formatDay'
 
 export default function Calendar() {
   const { year, month, days } = useSelector(currentCalendar)
   const [isSideCalendar, setIsSideCalendar] = useState<boolean>(true)
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false)
   const [isDeleteOpen, setIsDeleteOpen] = useState<boolean>(false)
-  const [modalDate, setModalDate] = useState<string>('')
+  const [modalDate, setModalDate] = useState<string>(formatDay(new Date()))
   const [timeIndex, setTimeIndex] = useState<number>(0)
 
   return (

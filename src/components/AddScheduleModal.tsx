@@ -38,8 +38,7 @@ export default function AddScheduleModal({
 
   const startTimeChange = (hour: number, minute: string, text: string, index: number) => {
     if (endSelectTimeIndex < index) {
-      setEndSelectTimeIndex(index)
-      endTimeChange(hour, minute, text)
+      endTimeChange(hour, minute, text, index)
     }
     setStartSelectTimeIndex(index)
     setIsSelectStartTime(false)
@@ -48,7 +47,8 @@ export default function AddScheduleModal({
     setStartMinute(parseInt(minute))
   }
 
-  const endTimeChange = (hour: number, minute: string, text: string) => {
+  const endTimeChange = (hour: number, minute: string, text: string, index: number) => {
+    setEndSelectTimeIndex(index)
     setIsSelectEndTime(false)
     setDisplayEndTime(text)
     setEndHour(hour)
@@ -140,11 +140,11 @@ export default function AddScheduleModal({
           -
           {isSelectEndTime && (
             <div className="absolute top-[30px] left-[160px] w-[180px] h-[180px] rounded-md bg-white shadow flex flex-col overflow-y-auto z-20">
-              {selectTimes.slice(startSelectTimeIndex).map(time => (
+              {selectTimes.slice(startSelectTimeIndex).map((time, index) => (
                 <div
                   className="p-2 text-sm cursor-pointer hover:bg-gray-100"
                   key={time.text}
-                  onClick={() => endTimeChange(time.hour, time.minute, time.text)}
+                  onClick={() => endTimeChange(time.hour, time.minute, time.text, index)}
                 >
                   {time.text}
                 </div>
