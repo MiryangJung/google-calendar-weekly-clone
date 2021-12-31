@@ -10,6 +10,14 @@ yarn start
 
 `localhost:3000` 접속
 
+## 사용
+
+- React
+- CRA
+- tailwind css
+- typescript
+- redux
+
 ## 기능
 
 ### 반응형
