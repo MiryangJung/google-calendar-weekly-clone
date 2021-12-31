@@ -75,14 +75,14 @@ __src/util__
 
 __src/components__
 
-| 함수                  | 역할             |
-|---------------------|----------------|
-| `AddScheduleButton` | 왼쪽 위의 일정 생성 버튼 |
-| `AddScheduleModal`  | 일정 생성 모달       |
-| `Header`            | 헤더             |
-| `ScheduleCalendar`  | 주별 달력          |
-| `SideCalendar`      | 월별 달력          |
-| `SideCalendarTitle` | 월별 달력의 헤더영역    |
+| 함수                  | 역할               |
+|---------------------|------------------|
+| `AddScheduleButton` | 왼쪽 위의 일정 생성 버튼   |
+| `AddScheduleModal`  | 일정 생성 모달         |
+| `Header`            | 헤더               |
+| `ScheduleCalendar`  | 주별 달력            |
+| `SideCalendar`      | 사이드바 월별 달력       |
+| `SideCalendarTitle` | 사이드바 월별 달력의 헤더영역 |
 
 __src/store/module__
 
